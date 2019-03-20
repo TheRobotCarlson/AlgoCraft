@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/algocraft/github.com/therobotcarlson/stlp-project:$COMMIT_SHA', '-f', './docker/install_console_ubuntu1604_python3.dockerfile', '-m', '4g', '.']
+
+images: ['gcr.io/algocraft/github.com/therobotcarlson/stlp-project:$COMMIT_SHA']
