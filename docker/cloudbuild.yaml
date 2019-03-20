@@ -5,4 +5,4 @@ steps:
 images: ['gcr.io/algocraft/github.com/therobotcarlson/stlp-project:$COMMIT_SHA']
 
 options:
- machineType: 'N1_STANDARD_2'
+  machineType: 'N1_STANDARD_2'
