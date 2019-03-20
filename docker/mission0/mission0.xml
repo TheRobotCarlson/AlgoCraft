@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Mission xmlns="http://ProjectMalmo.microsoft.com" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" xsi:schemaLocation="http://ProjectMalmo.microsoft.com Mission.xsd">
+    <About>
+        <Summary/>
+    </About>
+    <ServerSection>
+        <ServerInitialConditions>
+            <Time>
+                <StartTime>12000</StartTime>
+                <AllowPassageOfTime>false</AllowPassageOfTime>
+            </Time>
+            <Weather>clear</Weather>
+        </ServerInitialConditions>
+
+        <ServerHandlers>
+            <FlatWorldGenerator generatorString="2;7,2x1,2;1;"/>
+            <DrawingDecorator>                
+                <DrawBlock type="redstone_block" x="-2" y="3" z="10"/>
+            </DrawingDecorator>
+            <ServerQuitFromTimeUp description="" timeLimitMs="100000"/>
+            <ServerQuitWhenAnyAgentFinishes description=""/>
+        </ServerHandlers>
+    </ServerSection>
+    <AgentSection mode="Survival">
+        <Name>$name</Name>
+        <AgentStart>
+            <Placement x="-2.0" y="4.0" z="1.5" yaw="0"/>
+        </AgentStart>
+        <AgentHandlers>
+            <DiscreteMovementCommands/>
+            <ObservationFromFullStats/>
+            <ObservationFromGrid>
+                <Grid name="observationarea">
+                    <min x="-1" y="-1" z="-1"/>
+                    <max x="1" y="1" z="1"/>
+                </Grid>
+            </ObservationFromGrid>
+            <RewardForTouchingBlockType>
+                <Block reward="-100.0" type="lava" behaviour="onceOnly"/>
+                <Block reward="1000.0" type="redstone_block" behaviour="onceOnly"/>
+            </RewardForTouchingBlockType>     
+            <RewardForSendingCommand reward="-1"/>
+            <AgentQuitFromTouchingBlockType>
+                <Block type="lava" />
+                <Block type="redstone_block" />
+            </AgentQuitFromTouchingBlockType>
+        </AgentHandlers>
+    </AgentSection>
+</Mission>

@@ -1,0 +1,9 @@
+1.) navigate static obstacles: static directions, no observations
+1.) navigate dynamic obstacles: observation-based directions
+
+1.) navigate maze: observation-based directions with memory
+1.) navigate maze with dynamic obstacles: increased complexity
+
+1.) mob escape - stay alive the longest: 
+
+

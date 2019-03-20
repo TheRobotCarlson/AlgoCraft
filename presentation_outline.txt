@@ -1,0 +1,30 @@
+- What is Minecraft?
+	- Examples using Minecraft
+	- "all my examples will be in minecraft"
+	
+- what is machine learning?
+
+- subsets of machine learning
+	- supervised - summary
+	- unsupervised - summary
+	- reinforcement learning (RL) - summary
+
+- reinforcement learning in minecraft
+	- Grid world:
+		- Problem: navigating to a goal location as fast as possible
+		- First thought: let's just hardcode the path to the solution
+			- Doesn't generalize, we'd have to program all solutions
+			- our agent doesn't have all the information up front
+		- We need a way to specify what to do, but not how to do it
+			- reward correct behavior
+			- agent should "learn" how to perform correctly
+		- Solution: Q-learning 
+			- positive reward for reaching location, 
+			- negative reward for every other command
+	
+	- Resource gathering:
+		- Problem: collecting resources
+		- Solution: 
+
+	
+	
