@@ -45,7 +45,7 @@ RUN python3 -c "import malmo.minecraftbootstrap;malmo.minecraftbootstrap.downloa
 # Install Jupyter:
 RUN sudo pip3 install setuptools
 RUN sudo pip3 install jupyter
-RUN pip install jupyter_contrib_nbextensions
+RUN sudo pip3 install jupyter_contrib_nbextensions
 RUN jupyter contrib nbextension install --system
 RUN jupyter nbextension enable codefolding/main
 
