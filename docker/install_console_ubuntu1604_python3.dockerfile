@@ -46,8 +46,8 @@ RUN python3 -c "import malmo.minecraftbootstrap;malmo.minecraftbootstrap.downloa
 RUN sudo pip3 install setuptools
 RUN sudo pip3 install jupyter
 RUN sudo pip3 install jupyter_contrib_nbextensions
-RUN jupyter contrib nbextension install --system
-RUN jupyter nbextension enable codefolding/main
+RUN sudo jupyter contrib nbextension install --system
+RUN sudo jupyter nbextension enable codefolding/main
 
 RUN sudo apt-get install -y dos2unix
 COPY ./docker/console_startup.sh /home/malmo/console_startup.sh
