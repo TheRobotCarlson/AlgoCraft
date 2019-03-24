@@ -1,4 +1,4 @@
-# stlp-project
+# AlgoCraft
 
 all missions are available inside docker container notebooks. New docker container for each person
 
