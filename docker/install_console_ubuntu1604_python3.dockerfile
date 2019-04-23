@@ -6,7 +6,7 @@ ENV REFRESHED_AT 2018-03-18
 USER 0
 
 # Change wallpaper
-COPY ./docker/xfce4-desktop.xml /headless/.config/xfce4/xfconf/xfce-perchannel-xml/
+COPY ./docker/xfce4-desktop.xml /headless/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
 
 # 16.04 image doesn't contain sudo - install that first:
 RUN apt-get update && apt-get install -y sudo
@@ -43,11 +43,11 @@ RUN MALMOVERSION=${MALMOVERSION} sudo pip3 install "malmo==0.36.0"
 RUN python3 -c "import malmo.minecraftbootstrap;malmo.minecraftbootstrap.download(buildMod=True)"
 
 # Install Jupyter:
-RUN sudo pip3 install setuptools
-RUN sudo pip3 install jupyter
-RUN sudo pip3 install jupyter_contrib_nbextensions
-RUN sudo jupyter contrib nbextension install --system
-RUN sudo jupyter nbextension enable codefolding/main
+RUN sudo pip3 install setuptools wheel
+RUN sudo pip3 install future jupyter jupyter_contrib_nbextensions
+RUN sudo jupyter contrib nbextension install --system && \
+sudo jupyter nbextension enable codefolding/main
+
 
 RUN sudo apt-get install -y dos2unix
 COPY ./docker/console_startup.sh /home/malmo/console_startup.sh
