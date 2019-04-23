@@ -6,7 +6,7 @@ each person can run as much as they'd like and can submit through a file convers
 
 build container with all missions included and submission code
 
-docker run -it -p 5901:5901 -p 6901:6901 -p 8888:8888 -e VNC_PW=vncpassword malmo-me
+docker run -it -p 5901:5901 -p 6901:6901 -p 8888:8888 -p 10000:10000 -e VNC_PW=vncpassword malmo-me
 
 ## Mission Types
 ### Phase 1 static
