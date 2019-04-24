@@ -29,7 +29,7 @@
                 
                 <DrawBlock type="redstone_block" x="-2" y="3" z="10"/>
             </DrawingDecorator>
-            <ServerQuitFromTimeUp description="" timeLimitMs="100000"/>
+            <ServerQuitFromTimeUp description="" timeLimitMs="30000"/>
             <ServerQuitWhenAnyAgentFinishes description=""/>
         </ServerHandlers>
     </ServerSection>

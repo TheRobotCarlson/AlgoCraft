@@ -38,6 +38,11 @@ class UserAgent(object):
 
         return d[command]
 
+    def turn_right(self):
+        self.try_command("turn 1")
+
+    def turn_left(self):
+        self.try_command("turn -1")
 
     def move_north(self):
         self.try_command("movenorth 1")

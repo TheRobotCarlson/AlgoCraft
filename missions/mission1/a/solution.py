@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
+# In[8]:
 
 
 from UserAgent import UserAgent
@@ -12,7 +12,6 @@ import time
 class MyAgent(UserAgent):
     def __init__(self):
         super(MyAgent, self).__init__()
-        self.target_block = []
         self.name = "YOUR NAME HERE"  # keep this and put your own name
 
         # TODO: Initialize any variables you'll need here!
@@ -21,13 +20,13 @@ class MyAgent(UserAgent):
     def take_action(self, position, world_info):
         # TODO: replace the code below with your own!
 
-        
+
         # print(world_info[0]) # 3x3 square beneath our feet
         # print(world_info[1]) # 3x3 square 1 block above our feet
         # print(world_info[2]) # 3x3 square 2 blocks above our feet
 
-        # print(world_info[0][0], world_info[1][0], world_info[2][0]) # type of blocks in front of us
-        # print(world_info[0][2], world_info[1][2], world_info[2][2]) # type of blocks behind us
+        # print(world_info[0][0], world_info[1][0], world_info[2][0]) # blocks in front of us
+        # print(world_info[0][2], world_info[1][2], world_info[2][2]) # blocks behind us
         
         # print(position) # our position in the map
         self.history.append(position)
@@ -46,27 +45,33 @@ class MyAgent(UserAgent):
         position_change = self.position_change(action)
         next_position = [position[i] + position_change[i] for i in range(len(position))]
         print("next pos:", next_position)
-        print("Random action: %s" % action)
+        self.logger.info("Random action: %s" % action)
 
         # try to send the selected action
-        action = "north"
         self.move_direction(action)
 
 
-# In[4]:
+# In[6]:
 
 
-# Run to submit your code. Don't modify this!
+
 if __name__ == "__main__":
     import subprocess
     import time
     
     subprocess.check_output(["jupyter", "nbconvert", "--to", "script", "solution.ipynb"])
     print("done")
-    time.sleep(2)
+    time.sleep(5)
     print("running here")
-    temp = subprocess.check_output(["python", "../mission_server.py", "mission0"]).decode("utf-8").replace('\\\r\\\n', '\r\n')
-    print(temp)
+    print(subprocess.check_output(["python", "../../mission_server.py", "mission1.a"]))
+    
+
+
+# In[11]:
+
+
+# %%time
+# subprocess.check_output(["jupyter", "nbconvert", "--to", "script", "solution.ipynb"])
 
 
 # In[ ]:

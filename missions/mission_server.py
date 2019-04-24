@@ -11,8 +11,10 @@ import os
 import random
 import sys
 import time
+
 from string import Template
 import importlib
+
 if sys.version_info[0] == 2:
     # Workaround for https://github.com/PythonCharmers/python-future/issues/262
     import Tkinter as tk
@@ -38,17 +40,20 @@ if agent_host.receivedArgument("help"):
     print(agent_host.getUsage())
     exit(0)
 
-client_pool = MalmoPython.ClientPool()
-client_pool.add(MalmoPython.ClientInfo('localhost', 10001))
+# client_pool = MalmoPython.ClientPool()
+# client_pool.add(MalmoPython.ClientInfo('localhost', 10001))
 
 command = sys.argv[1]
 my_module = importlib.import_module(command)
 
+print(my_module)
+# from my_module.solution import MyAgent
 mission = my_module.mission
-agent = my_module.solution.MyAgent()
-
+agent = my_module.MyAgent()
+agent.target_location = my_module.target_location
+agent.starting_location = my_module.starting_location
 # -- set up the mission -- #
-mission_file = './missionfiles/' + mission + '.xml'
+mission_file = '../../missionfiles/%s.xml' % mission
 
 with open(mission_file, 'r') as f:
     print("Loading mission from %s." % mission_file)
@@ -66,7 +71,9 @@ max_retries = 3
 
 for retry in range(max_retries):
     try:
-        agent_host.startMission( my_mission, client_pool, my_mission_record, 0, "blah")
+        agent_host.startMission( my_mission, my_mission_record)
+
+        # agent_host.startMission( my_mission, client_pool, my_mission_record, 0, "blah")
         break
     except RuntimeError as e:
         if retry == max_retries - 1:
