@@ -53,7 +53,7 @@ agent = my_module.MyAgent()
 agent.target_location = my_module.target_location
 agent.starting_location = my_module.starting_location
 # -- set up the mission -- #
-mission_file = '../../missionfiles/%s.xml' % mission
+mission_file = './missionfiles/%s.xml' % mission
 
 with open(mission_file, 'r') as f:
     print("Loading mission from %s." % mission_file)

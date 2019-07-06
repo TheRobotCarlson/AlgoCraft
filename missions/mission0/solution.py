@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
+# In[7]:
 
 
 from UserAgent import UserAgent
@@ -12,7 +12,8 @@ import time
 class MyAgent(UserAgent):
     def __init__(self):
         super(MyAgent, self).__init__()
-        self.target_block = []
+        self.target_location = [] # these will be filled in
+        self.starting_location = [] # these will be filled in
         self.name = "YOUR NAME HERE"  # keep this and put your own name
 
         # TODO: Initialize any variables you'll need here!
@@ -49,11 +50,10 @@ class MyAgent(UserAgent):
         print("Random action: %s" % action)
 
         # try to send the selected action
-        action = "north"
         self.move_direction(action)
 
 
-# In[4]:
+# In[6]:
 
 
 # Run to submit your code. Don't modify this!

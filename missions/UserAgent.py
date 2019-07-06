@@ -1,4 +1,4 @@
-from __future__ import print_function
+# from __future__ import print_function
 
 from future import standard_library
 standard_library.install_aliases()
@@ -38,6 +38,11 @@ class UserAgent(object):
 
         return d[command]
 
+    def turn_right(self):
+        self.try_command("turn 1")
+
+    def turn_left(self):
+        self.try_command("turn -1")
 
     def move_north(self):
         self.try_command("movenorth 1")
@@ -55,12 +60,14 @@ class UserAgent(object):
         try:
             self.agent_host.sendCommand(command)
         except RuntimeError as e:
+            print("Failed to send command: %s \n %s" % (command, e))
             self.logger.error("Failed to send command: %s \n %s" % (command, e))
     
     def get_coordinates_from_state_info(self, info):
         return [int(info['XPos']), int(info['YPos']), int(info['ZPos'])]
 
     def take_action(self, position, world_info):
+        self.move_east()
         pass
 
     def act(self, world_state):
@@ -78,15 +85,17 @@ class UserAgent(object):
         self.logger.debug("State: %s (x = %.2f, z = %.2f)" % (current_s, float(obs['XPos']), float(obs['ZPos'])))
 
         observation_list = obs["observationarea"]
+
+        print(observation_list)
         block_list = []
-        for i in range(0, len(observation_list), 9):
-            block_list.append([])
-            for j in range(i, i + 9, 3):
-                block_list[i // 9].append([])
-                for k in range(j, j + 3):
-                    # print(i // 9, (j % 9) // 3, k)
-                    # print(block_list)
-                    block_list[i // 9][(j % 9) // 3].append(observation_list[k])
+        # for i in range(0, len(observation_list), 9):
+        #     block_list.append([])
+        #     for j in range(i, i + 9, 3):
+        #         block_list[i // 9].append([])
+        #         for k in range(j, j + 3):
+        #             # print(i // 9, (j % 9) // 3, k)
+        #             # print(block_list)
+        #             block_list[i // 9][(j % 9) // 3].append(observation_list[k])
 
         self.take_action(self.get_coordinates_from_state_info(obs), block_list)
         time.sleep(0.1)

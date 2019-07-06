@@ -15,26 +15,47 @@
         <ServerHandlers>
             <FlatWorldGenerator generatorString="2;7,2x1,2;1;"/>
             <DrawingDecorator>
-                <DrawCuboid type="stone" x1="-50" y1="0" z1="0" x2="50"  y2="5"  z2="0"/>
-                
-                <DrawBlock type="redstone_block" x="-42" y="4" z="0"/>
+                <DrawCuboid type="stone" x1="3" y1="4" z1="0" x2="3"  y2="10"  z2="12"/>
+                <DrawCuboid type="stone" x1="-3" y1="4" z1="0" x2="-3"  y2="10"  z2="12"/>
+                <DrawCuboid type="stone" x1="3" y1="4" z1="0" x2="-3"  y2="10"  z2="0"/>
+                <DrawCuboid type="stone" x1="3" y1="4" z1="12" x2="-3"  y2="10"  z2="12"/>
+
+
+                <DrawCuboid type="stone" x1="-1" y1="4" z1="2" x2="-2"  y2="6"  z2="2"/>
+                <DrawBlock type="lava" x="2" y="3" z="2"/>
+                <DrawCuboid type="stone" x1="1" y1="4" z1="2" x2="1"  y2="6"  z2="2"/>
+
+                <DrawBlock type="lava" x="2" y="3" z="4"/>
+                <DrawCuboid type="stone" x1="1" y1="4" z1="4" x2="1"  y2="6"  z2="4"/>
+                <DrawCuboid type="stone" x1="-1" y1="4" z1="4" x2="-1"  y2="6"  z2="4"/>
+                <DrawBlock type="lava" x="-2" y="3" z="4"/>
+
+                <DrawCuboid type="stone" x1="2" y1="4" z1="6" x2="-2"  y2="6"  z2="6"/>
+                <DrawCuboid type="air" x1="1" y1="4" z1="6" x2="1"  y2="6"  z2="6"/>
+                <DrawCuboid type="air" x1="-1" y1="4" z1="6" x2="-1"  y2="6"  z2="6"/>
+
+                <DrawCuboid type="stone" x1="2" y1="4" z1="8" x2="-1"  y2="6"  z2="8"/>
+
+                <DrawBlock type="lava" x="2" y="3" z="11"/>                
+                <DrawBlock type="lava" x="-2" y="3" z="11"/>
+
             </DrawingDecorator>
-            <ServerQuitFromTimeUp description="" timeLimitMs="3000"/>
+            <ServerQuitFromTimeUp description="" timeLimitMs="100000"/>
             <ServerQuitWhenAnyAgentFinishes description=""/>
         </ServerHandlers>
     </ServerSection>
     <AgentSection mode="Survival">
-        <Name>Blah</Name>
+        <Name>$name</Name>
         <AgentStart>
-            <Placement x="0" y="7" z="8" yaw="0"/>
+            <Placement x="-2.0" y="4.0" z="1.5" yaw="0"/>
         </AgentStart>
         <AgentHandlers>
             <DiscreteMovementCommands/>
             <ObservationFromFullStats/>
             <ObservationFromGrid>
                 <Grid name="observationarea">
-                    <min x="0" y="0" z="0"/>
-                    <max x="0" y="1" z="0"/>
+                    <min x="-1" y="-1" z="-1"/>
+                    <max x="1" y="1" z="1"/>
                 </Grid>
             </ObservationFromGrid>
             <RewardForTouchingBlockType>

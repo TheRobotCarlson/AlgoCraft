@@ -83,15 +83,17 @@ class UserAgent(object):
         self.logger.debug("State: %s (x = %.2f, z = %.2f)" % (current_s, float(obs['XPos']), float(obs['ZPos'])))
 
         observation_list = obs["observationarea"]
+
+        print(observation_list)
         block_list = []
-        for i in range(0, len(observation_list), 9):
-            block_list.append([])
-            for j in range(i, i + 9, 3):
-                block_list[i // 9].append([])
-                for k in range(j, j + 3):
-                    # print(i // 9, (j % 9) // 3, k)
-                    # print(block_list)
-                    block_list[i // 9][(j % 9) // 3].append(observation_list[k])
+        # for i in range(0, len(observation_list), 9):
+        #     block_list.append([])
+        #     for j in range(i, i + 9, 3):
+        #         block_list[i // 9].append([])
+        #         for k in range(j, j + 3):
+        #             # print(i // 9, (j % 9) // 3, k)
+        #             # print(block_list)
+        #             block_list[i // 9][(j % 9) // 3].append(observation_list[k])
 
         self.take_action(self.get_coordinates_from_state_info(obs), block_list)
         time.sleep(0.1)

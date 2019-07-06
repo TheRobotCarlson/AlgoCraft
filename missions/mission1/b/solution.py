@@ -1,11 +1,18 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
 from UserAgent import UserAgent
 import random
+import time
 
 
 class MyAgent(UserAgent):
     def __init__(self):
         super(MyAgent, self).__init__()
-        self.name = "YOUR NAME HERE"  # keep this and put your own name
+        self.name = "Brian"  # keep this and put your own name
 
         # TODO: Initialize any variables you'll need here!
         self.history = []
@@ -18,8 +25,8 @@ class MyAgent(UserAgent):
         # print(world_info[1]) # 3x3 square 1 block above our feet
         # print(world_info[2]) # 3x3 square 2 blocks above our feet
 
-        # print(world_info[0][0], world_info[1][0], world_info[2][0]) # blocks in front of us
-        # print(world_info[0][2], world_info[1][2], world_info[2][2]) # blocks behind us
+        # print(world_info[0][0], world_info[1][0], world_info[2][0]) # type of blocks in front of us
+        # print(world_info[0][2], world_info[1][2], world_info[2][2]) # type of blocks behind us
         
         # print(position) # our position in the map
         self.history.append(position)
@@ -38,8 +45,37 @@ class MyAgent(UserAgent):
         position_change = self.position_change(action)
         next_position = [position[i] + position_change[i] for i in range(len(position))]
         print("next pos:", next_position)
-        self.logger.info("Random action: %s" % action)
+        print("Random action: %s" % action)
 
         # try to send the selected action
         self.move_direction(action)
+
+
+# In[3]:
+
+
+# Run to submit your code. Don't modify this!
+if __name__ == "__main__":
+    import subprocess
+    import time
+    
+    subprocess.check_output(["jupyter", "nbconvert", "--to", "script", "solution.ipynb"])
+    print("done")
+    time.sleep(2)
+    print("running here")
+    temp = subprocess.check_output(["python", "../../mission_server.py", "mission1.b"]).decode("utf-8").replace('\\\r\\\n', '\r\n')
+    print(temp)
+    
+
+
+# In[17]:
+
+
+print()
+
+
+# In[ ]:
+
+
+
 
